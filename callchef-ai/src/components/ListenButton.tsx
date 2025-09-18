@@ -10,7 +10,7 @@ type Props = {
   agentId?: string;
   className?: string;
   size?: "default" | "lg" | "sm";
-  variant?: "default" | "outline";
+  variant?: "default" | "outline"; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
 
 export default function ListenButton({

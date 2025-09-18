@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* CallChef.ai Light Theme - Inspired by RestoHost.ai */
+    --background: 0 0% 100%;
+    --foreground: 222 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+    --primary: 269 64% 44%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 222 84% 4.9%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 98%;
+    --accent-foreground: 222 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 269 64% 44%;
+    --radius: 1rem;
+    --chart-1: 269 64% 44%;
+    --chart-2: 322 82% 57%;
+    --chart-3: 25 95% 53%;
+    --chart-4: 35 91% 65%;
+    --chart-5: 45 93% 66%;
+  }
+
+  .dark {
+    /* CallChef.ai Dark Theme - Purple sections */
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 71% 4%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 269 64% 44%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 217 11% 65%;
+    --accent: 215 28% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 269 64% 44%;
+    --chart-1: 269 64% 44%;
+    --chart-2: 322 82% 57%;
+    --chart-3: 25 95% 53%;
+    --chart-4: 35 91% 65%;
+    --chart-5: 45 93% 66%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Gradient backgrounds inspired by RestoHost.ai */
+  .gradient-hero {
+    background: linear-gradient(135deg, #f58529 0%, #d54e75 50%, #4b0d63 100%);
+    animation: gradient-shift 6s ease-in-out infinite;
+  }
+
+  .gradient-cta {
+    background: linear-gradient(135deg, #f58529 0%, #d54e75 50%, #4b0d63 100%);
+    animation: gradient-shift 6s ease-in-out infinite;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #f58529 0%, #d54e75 50%, #4b0d63 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-text-shift 4s ease-in-out infinite;
+  }
+
+  .purple-section {
+    background-color: #171230;
+  }
+
+  .light-section {
+    background-color: #f8f7f7;
+  }
+
+  /* Animations */
+  @keyframes gradient-shift {
+    0%, 100% {
+      background: linear-gradient(135deg, #f58529 0%, #d54e75 50%, #4b0d63 100%);
+    }
+    50% {
+      background: linear-gradient(135deg, #d54e75 0%, #4b0d63 50%, #f58529 100%);
+    }
+  }
+
+  @keyframes gradient-text-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes bounce-gentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s ease-in-out infinite;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .hover-glow {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(245, 133, 41, 0.4);
+  }
+
+  /* Parallax scroll effect */
+  .parallax {
+    will-change: transform;
+  }
+}

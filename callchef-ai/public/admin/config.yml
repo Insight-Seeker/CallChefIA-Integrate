@@ -1,0 +1,134 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Page d'accueil"
+        name: "home"
+        file: "content/home.md"
+        fields:
+          - { label: "Titre principal", name: "hero_title", widget: "string", default: "Comment transformer vos appels manqués en revenus ?" }
+          - { label: "Sous-titre", name: "hero_subtitle", widget: "text", default: "CallChef.ai garantit que votre restaurant ne rate jamais un appel - jour et nuit - tout en automatisant les commandes téléphoniques, réservations et réponses aux questions fréquentes." }
+          - { label: "Bouton principal", name: "hero_cta", widget: "string", default: "Commencer maintenant" }
+          - { label: "Bouton secondaire", name: "hero_cta_secondary", widget: "string", default: "Écouter la démo" }
+          - label: "Statistiques"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Valeur", name: "value", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+          - label: "Section assistants vocaux"
+            name: "voice_assistants"
+            widget: "object"
+            fields:
+              - { label: "Titre", name: "title", widget: "string", default: "Découvrez nos assistants vocaux en action !" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Section revenus perdus"
+            name: "lost_revenue"
+            widget: "object"
+            fields:
+              - { label: "Titre", name: "title", widget: "string", default: "Combien de revenus laissez-vous sur la table ?" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Bouton CTA", name: "cta", widget: "string", default: "CALCULATEUR DE REVENUS" }
+
+  - name: "pricing"
+    label: "Tarification"
+    files:
+      - label: "Plans tarifaires"
+        name: "plans"
+        file: "content/pricing.md"
+        fields:
+          - { label: "Titre section", name: "section_title", widget: "string", default: "Choisissez le bon plan pour vous" }
+          - { label: "Sous-titre", name: "section_subtitle", widget: "string", default: "Peu importe le type ou la taille de votre restaurant, il y a un plan pour vous." }
+          - label: "Plans"
+            name: "plans"
+            widget: "list"
+            fields:
+              - { label: "Nom du plan", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+              - { label: "Prix", name: "price", widget: "string" }
+              - { label: "Période", name: "period", widget: "string", default: "/mois" }
+              - { label: "Sous-prix", name: "sub_price", widget: "string", default: "par établissement" }
+              - label: "Fonctionnalités"
+                name: "features"
+                widget: "list"
+                field: { label: "Fonctionnalité", name: "feature", widget: "string" }
+              - { label: "Bouton", name: "button_text", widget: "string", default: "Commencer" }
+              - { label: "Badge (optionnel)", name: "badge", widget: "string", required: false }
+              - { label: "Mis en avant", name: "highlighted", widget: "boolean", default: false }
+
+  - name: "testimonials"
+    label: "Témoignages"
+    files:
+      - label: "Études de cas"
+        name: "case_studies"
+        file: "content/testimonials.md"
+        fields:
+          - label: "Témoignages clients"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Nom du restaurant", name: "restaurant_name", widget: "string" }
+              - { label: "Localisation", name: "location", widget: "string" }
+              - { label: "Type", name: "type", widget: "string" }
+              - { label: "Avatar/Emoji", name: "avatar", widget: "string" }
+              - { label: "Nom du propriétaire", name: "owner", widget: "string" }
+              - { label: "Titre du propriétaire", name: "title", widget: "string" }
+              - { label: "Citation", name: "quote", widget: "text" }
+              - label: "Statistiques"
+                name: "stats"
+                widget: "object"
+                fields:
+                  - { label: "Augmentation CA", name: "revenue_increase", widget: "string" }
+                  - { label: "Réduction appels manqués", name: "missed_calls_reduction", widget: "string" }
+                  - { label: "Satisfaction client", name: "customer_satisfaction", widget: "string" }
+                  - { label: "Temps économisé", name: "time_saved", widget: "string" }
+
+  - name: "contact"
+    label: "Contact"
+    files:
+      - label: "Informations de contact"
+        name: "contact_info"
+        file: "content/contact.md"
+        fields:
+          - { label: "Email", name: "email", widget: "string", default: "contact@callchef.ai" }
+          - { label: "Téléphone", name: "phone", widget: "string", default: "+33 1 23 45 67 89" }
+          - { label: "Adresse ligne 1", name: "address_line1", widget: "string", default: "123 Avenue des Champs-Élysées" }
+          - { label: "Adresse ligne 2", name: "address_line2", widget: "string", default: "75008 Paris, France" }
+          - label: "Horaires"
+            name: "hours"
+            widget: "list"
+            fields:
+              - { label: "Jour", name: "day", widget: "string" }
+              - { label: "Heures", name: "hours", widget: "string" }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Réponse", name: "answer", widget: "text" }
+
+  - name: "settings"
+    label: "Paramètres"
+    files:
+      - label: "Paramètres généraux"
+        name: "general"
+        file: "content/settings.md"
+        fields:
+          - { label: "Nom du site", name: "site_name", widget: "string", default: "CallChef.ai" }
+          - { label: "Description du site", name: "site_description", widget: "text", default: "Assistant Vocal IA pour Restaurants" }
+          - { label: "URL du site", name: "site_url", widget: "string", default: "https://callchef.ai" }
+          - { label: "Email de contact", name: "contact_email", widget: "string", default: "info@callchef.ai" }
+          - label: "Réseaux sociaux"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Facebook", name: "facebook", widget: "string", required: false }
+              - { label: "Twitter", name: "twitter", widget: "string", required: false }
+              - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }

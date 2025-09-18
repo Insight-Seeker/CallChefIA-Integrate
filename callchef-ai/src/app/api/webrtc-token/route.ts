@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(req: unknow) {
+export async function GET(req: unknow) { // eslint-disable-line @typescript-eslint/no-explicit-any
   try {
     const xi = process.env.XI_API_KEY;
     if (!xi) return NextResponse.json({ error: 'XI_API_KEY manquant' }, { status: 500 });
